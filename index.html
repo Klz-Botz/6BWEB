@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Selamat Datang</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .logo {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 80px;
+    }
+    h1 {
+      font-size: 2.5rem;
+      text-align: center;
+      color: #00d9ff;
+      text-shadow: 0 0 10px #00d9ff;
+    }
+    .start-btn {
+      margin-top: 30px;
+      padding: 12px 24px;
+      background-color: #00d9ff;
+      color: #000;
+      font-weight: bold;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .start-btn:hover {
+      background-color: #00bcd4;
+    }
+    footer {
+      position: absolute;
+      bottom: 10px;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+    audio {
+      display: none;
+    }
+
+    .spinner {
+      display: none;
+      margin-top: 40px;
+      width: 48px;
+      height: 48px;
+      border: 5px solid #00d9ff;
+      border-top: 5px solid transparent;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <img src="graffiti6b.png" alt="Logo 6B" class="logo" />
+  <h1>Selamat Datang di<br>Kenangan 6B</h1>
+
+  <audio id="bgmusic" loop>
+    <source src="https://files.catbox.moe/24f4tm.mp3" type="audio/mpeg">
+    Browser Anda tidak mendukung audio.
+  </audio>
+
+  <button class="start-btn" onclick="startApp()">Mulai</button>
+  <div class="spinner" id="spinner"></div>
+
+  <footer>© 6B - Semua Kenangan Terlestarikan</footer>
+
+  <script>
+    function startApp() {
+      const music = document.getElementById("bgmusic");
+      const btn = document.querySelector(".start-btn");
+      const spinner = document.getElementById("spinner");
+
+      music.play();
+      btn.style.display = "none"; // Sembunyikan tombol
+      spinner.style.display = "block"; // Tampilkan animasi loading
+
+      // Delay sebelum masuk ke x.html
+      setTimeout(() => {
+        window.location.href = 'x.html';
+      }, 2000); // 2 detik loading
+    }
+  </script>
+</body>
+</html>
